@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>F0.Testing</AssemblyName>
+    <RootNamespace>F0</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageId>F0.Testing</PackageId>
+    <Version>0.0.0</Version>
+    <Authors>Flash0ver</Authors>
+    <Company>f[0]</Company>
+    <Product>F0.Testing</Product>
+    <Description>Modules that aid in writing concise and precise unit tests to keep applications durable and robust.</Description>
+    <Copyright>© f[0]</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/Flash0ver/F0.Testing</PackageProjectUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/Flash0ver/F0/master/Branding/NuGet/F0.Testing.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/Flash0ver/F0.Testing.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>f[0] f0 test tdd aaa assert mock</PackageTags>
+    <PackageReleaseNotes></PackageReleaseNotes>
+  </PropertyGroup>
+
+</Project>
