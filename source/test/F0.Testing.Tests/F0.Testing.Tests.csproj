@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\F0.Testing\F0.Testing.csproj" />
+    <ProjectReference Include="..\..\production\F0.Testing\F0.Testing.csproj" />
   </ItemGroup>
 
 </Project>
