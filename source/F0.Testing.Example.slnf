@@ -1,0 +1,12 @@
+{
+  "solution": {
+    "path": "F0.Testing.sln",
+    "projects": [
+      "example\\F0.Testing.Example.MSTest\\F0.Testing.Example.MSTest.csproj",
+      "example\\F0.Testing.Example.NUnit\\F0.Testing.Example.NUnit.csproj",
+      "example\\F0.Testing.Example.xUnit\\F0.Testing.Example.xUnit.csproj",
+      "example\\F0.Testing.Example\\F0.Testing.Example.csproj",
+      "production\\F0.Testing\\F0.Testing.csproj"
+    ]
+  }
+}
