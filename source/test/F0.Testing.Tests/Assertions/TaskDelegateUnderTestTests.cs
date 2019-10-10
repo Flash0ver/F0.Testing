@@ -23,7 +23,7 @@ namespace F0.Tests.Assertions
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsSynchronously<DerivedException>());
 
 			Assert.IsType<AssertionFailedException>(exception);
-			CheckExceptionMessage(exception, "ThrowsSynchronously", "F0.Tests.Shared.DerivedException", "(No exception was observed synchronously)");
+			Checker.CheckExceptionMessage(exception, "ThrowsSynchronously", "F0.Tests.Shared.DerivedException", "(No exception was observed synchronously)");
 		}
 
 		[Fact]
@@ -34,7 +34,7 @@ namespace F0.Tests.Assertions
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsSynchronously<DerivedException>());
 
 			Assert.IsType<AssertionFailedException>(exception);
-			CheckExceptionMessage(exception, "ThrowsSynchronously", "F0.Tests.Shared.DerivedException", "(No exception was observed synchronously)");
+			Checker.CheckExceptionMessage(exception, "ThrowsSynchronously", "F0.Tests.Shared.DerivedException", "(No exception was observed synchronously)");
 		}
 
 		[Fact]
@@ -56,7 +56,7 @@ namespace F0.Tests.Assertions
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsSynchronously<BaseException>());
 
 			Assert.IsType<AssertionFailedException>(exception);
-			CheckExceptionMessage(exception, "ThrowsSynchronously", "F0.Tests.Shared.BaseException", "F0.Tests.Shared.DerivedException");
+			Checker.CheckExceptionMessage(exception, "ThrowsSynchronously", "F0.Tests.Shared.BaseException", "F0.Tests.Shared.DerivedException");
 		}
 
 		[Fact]
@@ -67,7 +67,7 @@ namespace F0.Tests.Assertions
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsSynchronously<ArgumentException>());
 
 			Assert.IsType<AssertionFailedException>(exception);
-			CheckExceptionMessage(exception, "ThrowsSynchronously", "System.ArgumentException", "F0.Tests.Shared.DerivedException");
+			Checker.CheckExceptionMessage(exception, "ThrowsSynchronously", "System.ArgumentException", "F0.Tests.Shared.DerivedException");
 		}
 
 		[Fact]
@@ -78,7 +78,7 @@ namespace F0.Tests.Assertions
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsSynchronously<DerivedException>());
 
 			Assert.IsType<AssertionFailedException>(exception);
-			CheckExceptionMessage(exception, "ThrowsSynchronously", "F0.Tests.Shared.DerivedException", "(No exception was observed synchronously)");
+			Checker.CheckExceptionMessage(exception, "ThrowsSynchronously", "F0.Tests.Shared.DerivedException", "(No exception was observed synchronously)");
 		}
 
 		[Fact]
@@ -89,7 +89,7 @@ namespace F0.Tests.Assertions
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsSynchronously<BaseException>());
 
 			Assert.IsType<AssertionFailedException>(exception);
-			CheckExceptionMessage(exception, "ThrowsSynchronously", "F0.Tests.Shared.BaseException", "(No exception was observed synchronously)");
+			Checker.CheckExceptionMessage(exception, "ThrowsSynchronously", "F0.Tests.Shared.BaseException", "(No exception was observed synchronously)");
 		}
 
 		[Fact]
@@ -100,7 +100,7 @@ namespace F0.Tests.Assertions
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsSynchronously<ArgumentException>());
 
 			Assert.IsType<AssertionFailedException>(exception);
-			CheckExceptionMessage(exception, "ThrowsSynchronously", "System.ArgumentException", "(No exception was observed synchronously)");
+			Checker.CheckExceptionMessage(exception, "ThrowsSynchronously", "System.ArgumentException", "(No exception was observed synchronously)");
 		}
 
 		[Fact]
@@ -111,7 +111,7 @@ namespace F0.Tests.Assertions
 			Exception exception = await Assert.ThrowsAsync<AssertionFailedException>(() => assertor.ThrowsAsynchronously<DerivedException>());
 
 			Assert.IsType<AssertionFailedException>(exception);
-			CheckExceptionMessage(exception, "ThrowsAsynchronously", "F0.Tests.Shared.DerivedException", "(No exception was observed asynchronously)");
+			Checker.CheckExceptionMessage(exception, "ThrowsAsynchronously", "F0.Tests.Shared.DerivedException", "(No exception was observed asynchronously)");
 		}
 
 		[Fact]
@@ -122,7 +122,7 @@ namespace F0.Tests.Assertions
 			Exception exception = await Assert.ThrowsAsync<AssertionFailedException>(() => assertor.ThrowsAsynchronously<DerivedException>());
 
 			Assert.IsType<AssertionFailedException>(exception);
-			CheckExceptionMessage(exception, "ThrowsAsynchronously", "F0.Tests.Shared.DerivedException", "(No exception was observed asynchronously)");
+			Checker.CheckExceptionMessage(exception, "ThrowsAsynchronously", "F0.Tests.Shared.DerivedException", "(No exception was observed asynchronously)");
 		}
 
 		[Fact]
@@ -133,7 +133,7 @@ namespace F0.Tests.Assertions
 			Exception exception = await Assert.ThrowsAsync<AssertionFailedException>(() => assertor.ThrowsAsynchronously<DerivedException>());
 
 			Assert.IsType<AssertionFailedException>(exception);
-			CheckExceptionMessage(exception, "ThrowsAsynchronously", "F0.Tests.Shared.DerivedException", "(An exception was thrown synchronously: 'F0.Tests.Shared.DerivedException')");
+			Checker.CheckExceptionMessage(exception, "ThrowsAsynchronously", "F0.Tests.Shared.DerivedException", "(An exception was thrown synchronously: 'F0.Tests.Shared.DerivedException')");
 		}
 
 		[Fact]
@@ -144,7 +144,7 @@ namespace F0.Tests.Assertions
 			Exception exception = await Assert.ThrowsAsync<AssertionFailedException>(() => assertor.ThrowsAsynchronously<BaseException>());
 
 			Assert.IsType<AssertionFailedException>(exception);
-			CheckExceptionMessage(exception, "ThrowsAsynchronously", "F0.Tests.Shared.BaseException", "(An exception was thrown synchronously: 'F0.Tests.Shared.DerivedException')");
+			Checker.CheckExceptionMessage(exception, "ThrowsAsynchronously", "F0.Tests.Shared.BaseException", "(An exception was thrown synchronously: 'F0.Tests.Shared.DerivedException')");
 		}
 
 		[Fact]
@@ -155,7 +155,7 @@ namespace F0.Tests.Assertions
 			Exception exception = await Assert.ThrowsAsync<AssertionFailedException>(() => assertor.ThrowsAsynchronously<ArgumentException>());
 
 			Assert.IsType<AssertionFailedException>(exception);
-			CheckExceptionMessage(exception, "ThrowsAsynchronously", "System.ArgumentException", "(An exception was thrown synchronously: 'F0.Tests.Shared.DerivedException')");
+			Checker.CheckExceptionMessage(exception, "ThrowsAsynchronously", "System.ArgumentException", "(An exception was thrown synchronously: 'F0.Tests.Shared.DerivedException')");
 		}
 
 		[Fact]
@@ -177,7 +177,7 @@ namespace F0.Tests.Assertions
 			Exception exception = await Assert.ThrowsAsync<AssertionFailedException>(() => assertor.ThrowsAsynchronously<BaseException>());
 
 			Assert.IsType<AssertionFailedException>(exception);
-			CheckExceptionMessage(exception, "ThrowsAsynchronously", "F0.Tests.Shared.BaseException", "F0.Tests.Shared.DerivedException");
+			Checker.CheckExceptionMessage(exception, "ThrowsAsynchronously", "F0.Tests.Shared.BaseException", "F0.Tests.Shared.DerivedException");
 		}
 
 		[Fact]
@@ -188,7 +188,7 @@ namespace F0.Tests.Assertions
 			Exception exception = await Assert.ThrowsAsync<AssertionFailedException>(() => assertor.ThrowsAsynchronously<ArgumentException>());
 
 			Assert.IsType<AssertionFailedException>(exception);
-			CheckExceptionMessage(exception, "ThrowsAsynchronously", "System.ArgumentException", "F0.Tests.Shared.DerivedException");
+			Checker.CheckExceptionMessage(exception, "ThrowsAsynchronously", "System.ArgumentException", "F0.Tests.Shared.DerivedException");
 		}
 
 		private static Task SuccessfullyCompleteSynchronously()
@@ -211,20 +211,6 @@ namespace F0.Tests.Assertions
 			await Task.Yield();
 
 			throw new DerivedException(nameof(ThrowAsynchronously));
-		}
-
-		private static void CheckExceptionMessage(Exception actualException, string assertionName, string expectedText, string actualText)
-		{
-			string expectedMessage = CreateErrorMessage(assertionName, expectedText, actualText);
-			Assert.Equal(expectedMessage, actualException.Message);
-		}
-
-		private static string CreateErrorMessage(string assertionName, string expectedText, string actualText)
-		{
-			string errorMessage = $"'{assertionName}' failed."
-				+ Environment.NewLine + $"   Expected: {expectedText}"
-				+ Environment.NewLine + $"   Actual:   {actualText}";
-			return errorMessage;
 		}
 	}
 }
