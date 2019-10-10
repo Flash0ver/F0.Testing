@@ -2,6 +2,8 @@
 CHANGELOG
 
 ## vNext
+
+## v0.2.0 (2019-10-10)
 - Added assertion for an exception to surface _synchronously_, when retrieving an asynchronous operation.
 - Added assertion for an exception to surface _asynchronously_, when awaiting an asynchronous operation.
 

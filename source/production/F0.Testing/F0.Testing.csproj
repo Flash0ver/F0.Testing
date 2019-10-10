@@ -10,7 +10,7 @@
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageId>F0.Testing</PackageId>
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <Authors>Flash0ver</Authors>
     <Company>f[0]</Company>
     <Product>F0.Testing</Product>
@@ -22,7 +22,7 @@
     <RepositoryUrl>https://github.com/Flash0ver/F0.Testing.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>f[0] f0 test tdd first aaa assert mock</PackageTags>
-    <PackageReleaseNotes>Initial upload providing explicit assertions for iterator methods to surface exceptions either when retrieving the iterator or when enumerating the sequence.</PackageReleaseNotes>
+    <PackageReleaseNotes>Added explicit assertions for asynchronous methods to surface exceptions either when retrieving the asynchronous operation or when awaiting the Task.</PackageReleaseNotes>
   </PropertyGroup>
 
 </Project>
