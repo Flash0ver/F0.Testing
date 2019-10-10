@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using F0.Assertions;
 using F0.Exceptions;
+using F0.Tests.Shared;
 using Xunit;
 
 namespace F0.Tests.Assertions
@@ -23,7 +24,7 @@ namespace F0.Tests.Assertions
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsImmediately<DerivedException>());
 
 			Assert.IsType<AssertionFailedException>(exception);
-			CheckExceptionMessage(exception, "ThrowsImmediately", "F0.Tests.Assertions.DerivedException", "(No exception was thrown when retrieving the iterator)");
+			CheckExceptionMessage(exception, "ThrowsImmediately", "F0.Tests.Shared.DerivedException", "(No exception was thrown when retrieving the iterator)");
 		}
 
 		[Fact]
@@ -45,7 +46,7 @@ namespace F0.Tests.Assertions
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsImmediately<BaseException>());
 
 			Assert.IsType<AssertionFailedException>(exception);
-			CheckExceptionMessage(exception, "ThrowsImmediately", "F0.Tests.Assertions.BaseException", "F0.Tests.Assertions.DerivedException");
+			CheckExceptionMessage(exception, "ThrowsImmediately", "F0.Tests.Shared.BaseException", "F0.Tests.Shared.DerivedException");
 		}
 
 		[Fact]
@@ -56,7 +57,7 @@ namespace F0.Tests.Assertions
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsImmediately<ArgumentException>());
 
 			Assert.IsType<AssertionFailedException>(exception);
-			CheckExceptionMessage(exception, "ThrowsImmediately", "System.ArgumentException", "F0.Tests.Assertions.DerivedException");
+			CheckExceptionMessage(exception, "ThrowsImmediately", "System.ArgumentException", "F0.Tests.Shared.DerivedException");
 		}
 
 		[Fact]
@@ -67,7 +68,7 @@ namespace F0.Tests.Assertions
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsImmediately<DerivedException>());
 
 			Assert.IsType<AssertionFailedException>(exception);
-			CheckExceptionMessage(exception, "ThrowsImmediately", "F0.Tests.Assertions.DerivedException", "(No exception was thrown when retrieving the iterator)");
+			CheckExceptionMessage(exception, "ThrowsImmediately", "F0.Tests.Shared.DerivedException", "(No exception was thrown when retrieving the iterator)");
 		}
 
 		[Fact]
@@ -78,7 +79,7 @@ namespace F0.Tests.Assertions
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsImmediately<BaseException>());
 
 			Assert.IsType<AssertionFailedException>(exception);
-			CheckExceptionMessage(exception, "ThrowsImmediately", "F0.Tests.Assertions.BaseException", "(No exception was thrown when retrieving the iterator)");
+			CheckExceptionMessage(exception, "ThrowsImmediately", "F0.Tests.Shared.BaseException", "(No exception was thrown when retrieving the iterator)");
 		}
 
 		[Fact]
@@ -100,7 +101,7 @@ namespace F0.Tests.Assertions
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsDeferred<DerivedException>());
 
 			Assert.IsType<AssertionFailedException>(exception);
-			CheckExceptionMessage(exception, "ThrowsDeferred", "F0.Tests.Assertions.DerivedException", "(No exception was thrown during iteration over the sequence)");
+			CheckExceptionMessage(exception, "ThrowsDeferred", "F0.Tests.Shared.DerivedException", "(No exception was thrown during iteration over the sequence)");
 		}
 
 		[Fact]
@@ -111,7 +112,7 @@ namespace F0.Tests.Assertions
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsDeferred<DerivedException>());
 
 			Assert.IsType<AssertionFailedException>(exception);
-			CheckExceptionMessage(exception, "ThrowsDeferred", "F0.Tests.Assertions.DerivedException", "(An exception was thrown before iteration over the sequence: 'F0.Tests.Assertions.DerivedException')");
+			CheckExceptionMessage(exception, "ThrowsDeferred", "F0.Tests.Shared.DerivedException", "(An exception was thrown before iteration over the sequence: 'F0.Tests.Shared.DerivedException')");
 		}
 
 		[Fact]
@@ -122,7 +123,7 @@ namespace F0.Tests.Assertions
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsDeferred<BaseException>());
 
 			Assert.IsType<AssertionFailedException>(exception);
-			CheckExceptionMessage(exception, "ThrowsDeferred", "F0.Tests.Assertions.BaseException", "(An exception was thrown before iteration over the sequence: 'F0.Tests.Assertions.DerivedException')");
+			CheckExceptionMessage(exception, "ThrowsDeferred", "F0.Tests.Shared.BaseException", "(An exception was thrown before iteration over the sequence: 'F0.Tests.Shared.DerivedException')");
 		}
 
 		[Fact]
@@ -133,7 +134,7 @@ namespace F0.Tests.Assertions
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsDeferred<ArgumentException>());
 
 			Assert.IsType<AssertionFailedException>(exception);
-			CheckExceptionMessage(exception, "ThrowsDeferred", "System.ArgumentException", "(An exception was thrown before iteration over the sequence: 'F0.Tests.Assertions.DerivedException')");
+			CheckExceptionMessage(exception, "ThrowsDeferred", "System.ArgumentException", "(An exception was thrown before iteration over the sequence: 'F0.Tests.Shared.DerivedException')");
 		}
 
 		[Fact]
@@ -155,7 +156,7 @@ namespace F0.Tests.Assertions
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsDeferred<BaseException>());
 
 			Assert.IsType<AssertionFailedException>(exception);
-			CheckExceptionMessage(exception, "ThrowsDeferred", "F0.Tests.Assertions.BaseException", "F0.Tests.Assertions.DerivedException");
+			CheckExceptionMessage(exception, "ThrowsDeferred", "F0.Tests.Shared.BaseException", "F0.Tests.Shared.DerivedException");
 		}
 
 		[Fact]
@@ -166,10 +167,10 @@ namespace F0.Tests.Assertions
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsDeferred<ArgumentException>());
 
 			Assert.IsType<AssertionFailedException>(exception);
-			CheckExceptionMessage(exception, "ThrowsDeferred", "System.ArgumentException", "F0.Tests.Assertions.DerivedException");
+			CheckExceptionMessage(exception, "ThrowsDeferred", "System.ArgumentException", "F0.Tests.Shared.DerivedException");
 		}
 
-		public static IEnumerable<int> GetSequence()
+		private static IEnumerable<int> GetSequence()
 		{
 			return Enumerable.Empty<int>();
 		}
@@ -199,19 +200,5 @@ namespace F0.Tests.Assertions
 				+ Environment.NewLine + $"   Actual:   {actualText}";
 			return errorMessage;
 		}
-	}
-
-	public class BaseException : Exception
-	{
-		public BaseException(string message)
-			: base(message)
-		{ }
-	}
-
-	public class DerivedException : BaseException
-	{
-		public DerivedException(string message)
-			: base(message)
-		{ }
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using F0.Assertions;
 
 namespace F0.Testing
@@ -14,6 +15,16 @@ namespace F0.Testing
 			}
 
 			return new EnumerableDelegateUnderTest<T>(enumerableMethod);
+		}
+
+		public static TaskDelegateUnderTest That(Func<Task> asyncMethod)
+		{
+			if (asyncMethod is null)
+			{
+				throw new ArgumentNullException(nameof(asyncMethod));
+			}
+
+			return new TaskDelegateUnderTest(asyncMethod);
 		}
 	}
 }
