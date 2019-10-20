@@ -25,4 +25,8 @@
     <PackageReleaseNotes>Added explicit assertions for asynchronous methods to surface exceptions either when retrieving the asynchronous operation or when awaiting the Task.</PackageReleaseNotes>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.3" />
+  </ItemGroup>
+
 </Project>

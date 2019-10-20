@@ -26,5 +26,25 @@ namespace F0.Testing
 
 			return new TaskDelegateUnderTest(asyncMethod);
 		}
+
+		public static NonGenericValueTaskDelegateUnderTest That(Func<ValueTask> asynchronousMethod)
+		{
+			if (asynchronousMethod is null)
+			{
+				throw new ArgumentNullException(nameof(asynchronousMethod));
+			}
+
+			return new NonGenericValueTaskDelegateUnderTest(asynchronousMethod);
+		}
+
+		public static GenericValueTaskDelegateUnderTest<T> That<T>(Func<ValueTask<T>> asynchronousMethod)
+		{
+			if (asynchronousMethod is null)
+			{
+				throw new ArgumentNullException(nameof(asynchronousMethod));
+			}
+
+			return new GenericValueTaskDelegateUnderTest<T>(asynchronousMethod);
+		}
 	}
 }
