@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using F0.Exceptions;
 
 namespace F0.Assertions
@@ -84,7 +83,10 @@ namespace F0.Assertions
 
 			try
 			{
-				_ = iterator.Count();
+				foreach (T element in iterator)
+				{
+					_ = element;
+				}
 				exception = null;
 			}
 			catch (Exception e)
