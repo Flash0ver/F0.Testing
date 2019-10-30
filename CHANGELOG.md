@@ -2,6 +2,8 @@
 CHANGELOG
 
 ## vNext
+
+## v0.4.0 (2019-10-30)
 - Added assertion for an exception to surface _immediately_, when retrieving an asynchronous iterator.
 - Added assertion for an exception to surface _deferred_, when asynchronously enumerating an async iterator.
 
