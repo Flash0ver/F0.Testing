@@ -49,5 +49,15 @@ namespace F0.Tests.Testing
 			GenericValueTaskDelegateUnderTest<int> asserter = Test.That(() => new ValueTask<int>());
 			Assert.NotNull(asserter);
 		}
+
+		[Fact]
+		public void CheckAsserterForAsyncEnumerable()
+		{
+			Func<IAsyncEnumerable<int>> param = null;
+			Assert.Throws<ArgumentNullException>("asyncEnumerableMethod", () => Test.That(param));
+
+			AsyncEnumerableDelegateUnderTest<int> asserter = Test.That(() => AsyncEnumerable.Empty<int>());
+			Assert.NotNull(asserter);
+		}
 	}
 }

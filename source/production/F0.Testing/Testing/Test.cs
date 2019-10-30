@@ -46,5 +46,15 @@ namespace F0.Testing
 
 			return new GenericValueTaskDelegateUnderTest<T>(asynchronousMethod);
 		}
+
+		public static AsyncEnumerableDelegateUnderTest<T> That<T>(Func<IAsyncEnumerable<T>> asyncEnumerableMethod)
+		{
+			if (asyncEnumerableMethod is null)
+			{
+				throw new ArgumentNullException(nameof(asyncEnumerableMethod));
+			}
+
+			return new AsyncEnumerableDelegateUnderTest<T>(asyncEnumerableMethod);
+		}
 	}
 }
