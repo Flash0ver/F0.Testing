@@ -2,6 +2,7 @@
 CHANGELOG
 
 ## vNext
+- Added target framework: `.NET Standard 2.1`.
 
 ## v0.4.0 (2019-10-30)
 - Added assertion for an exception to surface _immediately_, when retrieving an asynchronous iterator.
