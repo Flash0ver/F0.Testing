@@ -18,7 +18,7 @@ namespace F0.Testing.Example.Services
 
 			return GetSequenceEnumerator();
 
-			IEnumerable<int> GetSequenceEnumerator()
+			static IEnumerable<int> GetSequenceEnumerator()
 			{
 				yield return 240;
 

@@ -18,7 +18,7 @@ namespace F0.Testing.Example.Services
 
 			return GetAsynchronousOperation();
 
-			async ValueTask<int> GetAsynchronousOperation()
+			static async ValueTask<int> GetAsynchronousOperation()
 			{
 				await Task.Yield();
 

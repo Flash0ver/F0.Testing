@@ -64,19 +64,13 @@ namespace F0.Tests.Exceptions
 
 		private static AssertionFailedException RoundTrip(AssertionFailedException exception)
 		{
-			AssertionFailedException deserialized;
+			using Stream stream = new MemoryStream();
+			IFormatter formatter = new BinaryFormatter();
 
-			using (Stream stream = new MemoryStream())
-			{
-				IFormatter formatter = new BinaryFormatter();
+			formatter.Serialize(stream, exception);
+			stream.Seek(0, SeekOrigin.Begin);
 
-				formatter.Serialize(stream, exception);
-				stream.Seek(0, SeekOrigin.Begin);
-
-				deserialized = (AssertionFailedException)formatter.Deserialize(stream);
-			}
-
-			return deserialized;
+			return (AssertionFailedException)formatter.Deserialize(stream);
 		}
 	}
 }

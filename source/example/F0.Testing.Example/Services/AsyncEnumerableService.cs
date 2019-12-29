@@ -19,7 +19,7 @@ namespace F0.Testing.Example.Services
 
 			return GetAsynchronousSequenceEnumerator();
 
-			async IAsyncEnumerable<int> GetAsynchronousSequenceEnumerator()
+			static async IAsyncEnumerable<int> GetAsynchronousSequenceEnumerator()
 			{
 				await Task.Yield();
 				yield return 240;
