@@ -83,7 +83,7 @@ namespace F0.Assertions
 
 			try
 			{
-				await valueTask;
+				_ = await valueTask;
 				exception = null;
 			}
 			catch (Exception e)
