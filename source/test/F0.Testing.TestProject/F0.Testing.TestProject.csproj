@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>F0.Testing.TestAssembly</AssemblyName>
+    <RootNamespace>F0.Testing.TestNamespace</RootNamespace>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.2.3.4</FileVersion>
+    <InformationalVersion>1.2.3-beta1+204ff0a</InformationalVersion>
+  </PropertyGroup>
+
+</Project>

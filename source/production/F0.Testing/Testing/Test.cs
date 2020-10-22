@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Threading.Tasks;
 using F0.Assertions;
 
@@ -7,6 +8,16 @@ namespace F0.Testing
 {
 	public static class Test
 	{
+		public static AssemblyUnderTest That(Assembly assembly)
+		{
+			if (assembly is null)
+			{
+				throw new ArgumentNullException(nameof(assembly));
+			}
+
+			return new AssemblyUnderTest(assembly);
+		}
+
 		public static EnumerableDelegateUnderTest<T> That<T>(Func<IEnumerable<T>> enumerableMethod)
 		{
 			if (enumerableMethod is null)

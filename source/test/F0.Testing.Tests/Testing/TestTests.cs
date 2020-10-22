@@ -1,15 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using F0.Assertions;
 using F0.Testing;
+using F0.Testing.TestNamespace;
 using Xunit;
 
 namespace F0.Tests.Testing
 {
 	public class TestTests
 	{
+		[Fact]
+		public void CheckAsserterForAssembly()
+		{
+			Assembly arg = null;
+			Assert.Throws<ArgumentNullException>("assembly", () => Test.That(arg));
+
+			Assembly assembly = typeof(TestClass).Assembly;
+			AssemblyUnderTest asserter = Test.That(assembly);
+			Assert.NotNull(asserter);
+		}
+
 		[Fact]
 		public void CheckAsserterForEnumerable()
 		{

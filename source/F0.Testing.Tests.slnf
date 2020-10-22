@@ -3,6 +3,7 @@
     "path": "F0.Testing.sln",
     "projects": [
       "production\\F0.Testing\\F0.Testing.csproj",
+      "test\\F0.Testing.TestProject\\F0.Testing.TestProject.csproj",
       "test\\F0.Testing.Tests\\F0.Testing.Tests.csproj"
     ]
   }

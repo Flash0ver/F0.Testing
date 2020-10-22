@@ -10,7 +10,7 @@ namespace F0.Tests.Exceptions
 	public class AssertionFailedExceptionTests
 	{
 		[Fact]
-		public void Throw()
+		public void Throw_WithoutInnerException()
 		{
 			Exception exception = Assert.Throws<AssertionFailedException>(() => AssertionFailedException.Throw("1", "2", "3"));
 
@@ -18,6 +18,22 @@ namespace F0.Tests.Exceptions
 				+ Environment.NewLine + "   Expected: 2"
 				+ Environment.NewLine + "   Actual:   3";
 			Assert.Equal(message, exception.Message);
+			Assert.Null(exception.InnerException);
+		}
+
+		[Fact]
+		public void Throw_WithInnerException()
+		{
+			Exception innerException = new InvalidOperationException("Inner Message");
+			Exception exception = Assert.Throws<AssertionFailedException>(() => AssertionFailedException.Throw("1", "2", "3", innerException));
+
+			string message = "'1' failed. (Inner Message)"
+				+ Environment.NewLine + "   Expected: 2"
+				+ Environment.NewLine + "   Actual:   3"
+				+ Environment.NewLine + "   Inner --> System.InvalidOperationException: Inner Message";
+			Assert.Equal(message, exception.Message);
+			Assert.NotNull(exception.InnerException);
+			Assert.Same(innerException, exception.InnerException);
 		}
 
 		[Fact]
