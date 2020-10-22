@@ -2,11 +2,15 @@
 CHANGELOG
 
 ## vNext
+
+## v0.6.0 (2020-10-22)
 - Added assertion for a single custom attribute of a specified type to be applied to a given assembly.
 - Added assertion for multiple custom attributes of a specified type to be applied to a given assembly.
 - Added assertion for the number of custom attributes of a specified type that are applied to a given assembly.
 - Added assertion for the total number of custom attributes of a specified type that are applied to a given assembly.
 - Added assertion for the version number of a given assembly.
+- Updated `.NET Standard 2.0` dependency on `Microsoft.Bcl.AsyncInterfaces` from `1.1.0` to `1.1.1`.
+- Updated `.NET Standard 2.0` dependency on `System.Threading.Tasks.Extensions` from `4.5.3` to `4.5.4`.
 
 ## v0.5.0 (2019-12-31)
 - Added target framework: `.NET Standard 2.1`.
