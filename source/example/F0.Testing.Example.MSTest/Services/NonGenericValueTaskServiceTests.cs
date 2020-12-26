@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using F0.Testing.Example.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

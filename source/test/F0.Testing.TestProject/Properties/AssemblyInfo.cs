@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using F0.Testing.TestNamespace;
 
 [assembly: AssemblyDescription("TestDescription")]
