@@ -2,6 +2,7 @@
 CHANGELOG
 
 ## vNext
+- Package: Embed icon (fixed _NuGet Warning NU5048_), keep fallback icon URL.
 
 ## v0.6.0 (2020-10-22)
 - Added assertion for a single custom attribute of a specified type to be applied to a given assembly.
