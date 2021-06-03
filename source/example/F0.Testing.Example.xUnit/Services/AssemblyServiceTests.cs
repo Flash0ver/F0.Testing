@@ -14,7 +14,7 @@ namespace F0.Testing.Example.xUnit.Services
 		public void xUnit_AssertThat_SingleCustomAttributeOfSpecifiedTypeIsAppliedToTheInspectedAssembly()
 		{
 			// Arrange
-			var service = new AssemblyService();
+			AssemblyService service = new();
 
 			// Act
 			Assembly assembly = service.GetAssembly();
@@ -29,7 +29,7 @@ namespace F0.Testing.Example.xUnit.Services
 		public void xUnit_AssertThat_MoreThanOneOfTheRequestedCustomAttributeIsAppliedToTheInspectedAssembly()
 		{
 			// Arrange
-			var service = new AssemblyService();
+			AssemblyService service = new();
 
 			// Act
 			Assembly assembly = service.GetAssembly();
@@ -55,7 +55,7 @@ namespace F0.Testing.Example.xUnit.Services
 		public void xUnit_AssertThat_AssemblyVersionIsAsExpected()
 		{
 			// Arrange
-			var service = new AssemblyService();
+			AssemblyService service = new();
 
 			// Act
 			Assembly assembly = service.GetAssembly();
@@ -69,7 +69,7 @@ namespace F0.Testing.Example.xUnit.Services
 		public void Explicitly_AssertThat_SingleCustomAttributeOfSpecifiedTypeIsAppliedToTheInspectedAssembly()
 		{
 			// Arrange
-			var service = new AssemblyService();
+			AssemblyService service = new();
 
 			// Act
 			Assembly assembly = service.GetAssembly();
@@ -83,7 +83,7 @@ namespace F0.Testing.Example.xUnit.Services
 		public void Explicitly_AssertThat_MoreThanOneOfTheRequestedCustomAttributeIsAppliedToTheInspectedAssembly()
 		{
 			// Arrange
-			var service = new AssemblyService();
+			AssemblyService service = new();
 
 			// Act
 			Assembly assembly = service.GetAssembly();
@@ -109,7 +109,7 @@ namespace F0.Testing.Example.xUnit.Services
 		public void Explicitly_AssertThat_AssemblyVersionIsAsExpected()
 		{
 			// Arrange
-			var service = new AssemblyService();
+			AssemblyService service = new();
 
 			// Act
 			Assembly assembly = service.GetAssembly();

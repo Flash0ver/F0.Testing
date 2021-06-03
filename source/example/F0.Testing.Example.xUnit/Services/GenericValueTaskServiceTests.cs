@@ -11,7 +11,7 @@ namespace F0.Testing.Example.xUnit.Services
 		public void xUnit_AssertThatExceptionsForAsynchronousMethodsSurface_WhenTheAsynchronousOperationIsRetrieved()
 		{
 			// Arrange
-			var service = new GenericValueTaskService();
+			GenericValueTaskService service = new();
 
 			// Act and Assert
 			Exception exception = Assert.Throws<SynchronousGenericAllocationFreeException>(() => { _ = service.CreateOperation(true); });
@@ -22,7 +22,7 @@ namespace F0.Testing.Example.xUnit.Services
 		public async Task xUnit_AssertThatExceptionsForAsynchronousMethodsSurface_WhenTheReturnedValueTaskIsAwaited()
 		{
 			// Arrange
-			var service = new GenericValueTaskService();
+			GenericValueTaskService service = new();
 
 			// Act
 			ValueTask<int> operation = service.CreateOperation(false);
@@ -36,7 +36,7 @@ namespace F0.Testing.Example.xUnit.Services
 		public void Explicitly_AssertThatExceptionsForAsynchronousMethodsSurface_WhenTheAsynchronousOperationIsRetrieved()
 		{
 			// Arrange
-			var service = new GenericValueTaskService();
+			GenericValueTaskService service = new();
 
 			// Act and Assert
 			Exception exception = Test.That(() => service.CreateOperation(true)).ThrowsSynchronously<SynchronousGenericAllocationFreeException>();
@@ -47,7 +47,7 @@ namespace F0.Testing.Example.xUnit.Services
 		public async Task Explicitly_AssertThatExceptionsForAsynchronousMethodsSurface_WhenTheReturnedValueTaskIsAwaited()
 		{
 			// Arrange
-			var service = new GenericValueTaskService();
+			GenericValueTaskService service = new();
 
 			// Act and Assert
 			Exception exception = await Test.That(() => service.CreateOperation(false)).ThrowsAsynchronously<AsynchronousGenericAllocationFreeException>();

@@ -18,7 +18,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsSynchronously_TesteeDoesNotThrowAnyExceptionSynchronously_FailedAssertion()
 		{
-			var assertor = new GenericValueTaskDelegateUnderTest<int>(SuccessfullyCompleteSynchronously);
+			GenericValueTaskDelegateUnderTest<int> assertor = new(SuccessfullyCompleteSynchronously);
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsSynchronously<DerivedException>());
 
@@ -29,7 +29,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsSynchronously_TesteeDoesNotThrowAnyExceptionAsynchronously_FailedAssertion()
 		{
-			var assertor = new GenericValueTaskDelegateUnderTest<int>(SuccessfullyCompleteAsynchronously);
+			GenericValueTaskDelegateUnderTest<int> assertor = new(SuccessfullyCompleteAsynchronously);
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsSynchronously<DerivedException>());
 
@@ -40,7 +40,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsSynchronously_TesteeThrowsSynchronouslyExactException_PassedAssertion()
 		{
-			var assertor = new GenericValueTaskDelegateUnderTest<int>(ThrowSynchronously);
+			GenericValueTaskDelegateUnderTest<int> assertor = new(ThrowSynchronously);
 
 			Exception exception = assertor.ThrowsSynchronously<DerivedException>();
 
@@ -51,7 +51,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsSynchronously_TesteeThrowsSynchronouslyDerivedException_FailedAssertion()
 		{
-			var assertor = new GenericValueTaskDelegateUnderTest<int>(ThrowSynchronously);
+			GenericValueTaskDelegateUnderTest<int> assertor = new(ThrowSynchronously);
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsSynchronously<BaseException>());
 
@@ -62,7 +62,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsSynchronously_TesteeThrowsSynchronouslyDifferentException_FailedAssertion()
 		{
-			var assertor = new GenericValueTaskDelegateUnderTest<int>(ThrowSynchronously);
+			GenericValueTaskDelegateUnderTest<int> assertor = new(ThrowSynchronously);
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsSynchronously<ArgumentException>());
 
@@ -73,7 +73,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsSynchronously_TesteeThrowsAsynchronouslyExactException_FailedAssertion()
 		{
-			var assertor = new GenericValueTaskDelegateUnderTest<int>(ThrowAsynchronously);
+			GenericValueTaskDelegateUnderTest<int> assertor = new(ThrowAsynchronously);
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsSynchronously<DerivedException>());
 
@@ -84,7 +84,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsSynchronously_TesteeThrowsAsynchronouslyDerivedException_FailedAssertion()
 		{
-			var assertor = new GenericValueTaskDelegateUnderTest<int>(ThrowAsynchronously);
+			GenericValueTaskDelegateUnderTest<int> assertor = new(ThrowAsynchronously);
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsSynchronously<BaseException>());
 
@@ -95,7 +95,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsSynchronously_TesteeThrowsAsynchronouslyDifferentException_FailedAssertion()
 		{
-			var assertor = new GenericValueTaskDelegateUnderTest<int>(ThrowAsynchronously);
+			GenericValueTaskDelegateUnderTest<int> assertor = new(ThrowAsynchronously);
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsSynchronously<ArgumentException>());
 
@@ -106,7 +106,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public async Task ThrowsAsynchronously_TesteeDoesNotThrowAnyExceptionSynchronously_FailedAssertion()
 		{
-			var assertor = new GenericValueTaskDelegateUnderTest<int>(SuccessfullyCompleteSynchronously);
+			GenericValueTaskDelegateUnderTest<int> assertor = new(SuccessfullyCompleteSynchronously);
 
 			Exception exception = await Assert.ThrowsAsync<AssertionFailedException>(() => assertor.ThrowsAsynchronously<DerivedException>().AsTask());
 
@@ -117,7 +117,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public async Task ThrowsAsynchronously_TesteeDoesNotThrowAnyExceptionAsynchronously_FailedAssertion()
 		{
-			var assertor = new GenericValueTaskDelegateUnderTest<int>(SuccessfullyCompleteAsynchronously);
+			GenericValueTaskDelegateUnderTest<int> assertor = new(SuccessfullyCompleteAsynchronously);
 
 			Exception exception = await Assert.ThrowsAsync<AssertionFailedException>(() => assertor.ThrowsAsynchronously<DerivedException>().AsTask());
 
@@ -128,7 +128,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public async Task ThrowsAsynchronously_TesteeThrowsSynchronouslyExactException_FailedAssertion()
 		{
-			var assertor = new GenericValueTaskDelegateUnderTest<int>(ThrowSynchronously);
+			GenericValueTaskDelegateUnderTest<int> assertor = new(ThrowSynchronously);
 
 			Exception exception = await Assert.ThrowsAsync<AssertionFailedException>(() => assertor.ThrowsAsynchronously<DerivedException>().AsTask());
 
@@ -139,7 +139,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public async Task ThrowsAsynchronously_TesteeThrowsSynchronouslyDerivedException_FailedAssertion()
 		{
-			var assertor = new GenericValueTaskDelegateUnderTest<int>(ThrowSynchronously);
+			GenericValueTaskDelegateUnderTest<int> assertor = new(ThrowSynchronously);
 
 			Exception exception = await Assert.ThrowsAsync<AssertionFailedException>(() => assertor.ThrowsAsynchronously<BaseException>().AsTask());
 
@@ -150,7 +150,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public async Task ThrowsAsynchronously_TesteeThrowsSynchronouslyDifferentException_FailedAssertion()
 		{
-			var assertor = new GenericValueTaskDelegateUnderTest<int>(ThrowSynchronously);
+			GenericValueTaskDelegateUnderTest<int> assertor = new(ThrowSynchronously);
 
 			Exception exception = await Assert.ThrowsAsync<AssertionFailedException>(() => assertor.ThrowsAsynchronously<ArgumentException>().AsTask());
 
@@ -161,7 +161,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public async Task ThrowsAsynchronously_TesteeThrowsAsynchronouslyExactException_PassedAssertion()
 		{
-			var assertor = new GenericValueTaskDelegateUnderTest<int>(ThrowAsynchronously);
+			GenericValueTaskDelegateUnderTest<int> assertor = new(ThrowAsynchronously);
 
 			Exception exception = await assertor.ThrowsAsynchronously<DerivedException>();
 
@@ -172,7 +172,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public async Task ThrowsAsynchronously_TesteeThrowsAsynchronouslyDerivedException_FailedAssertion()
 		{
-			var assertor = new GenericValueTaskDelegateUnderTest<int>(ThrowAsynchronously);
+			GenericValueTaskDelegateUnderTest<int> assertor = new(ThrowAsynchronously);
 
 			Exception exception = await Assert.ThrowsAsync<AssertionFailedException>(() => assertor.ThrowsAsynchronously<BaseException>().AsTask());
 
@@ -183,7 +183,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public async Task ThrowsAsynchronously_TesteeThrowsAsynchronouslyDifferentException_FailedAssertion()
 		{
-			var assertor = new GenericValueTaskDelegateUnderTest<int>(ThrowAsynchronously);
+			GenericValueTaskDelegateUnderTest<int> assertor = new(ThrowAsynchronously);
 
 			Exception exception = await Assert.ThrowsAsync<AssertionFailedException>(() => assertor.ThrowsAsynchronously<ArgumentException>().AsTask());
 

@@ -39,7 +39,7 @@ namespace F0.Tests.Exceptions
 		[Fact]
 		public void Constructor_Parameterless()
 		{
-			var exception = new AssertionFailedException();
+			AssertionFailedException exception = new();
 
 			Assert.Equal($"Exception of type '{typeof(AssertionFailedException)}' was thrown.", exception.Message);
 			Assert.Null(exception.InnerException);
@@ -49,7 +49,7 @@ namespace F0.Tests.Exceptions
 		public void Constructor_Message()
 		{
 			string message = "240";
-			var exception = new AssertionFailedException(message);
+			AssertionFailedException exception = new(message);
 
 			Assert.Equal(message, exception.Message);
 			Assert.Null(exception.InnerException);
@@ -59,7 +59,7 @@ namespace F0.Tests.Exceptions
 		public void Constructor_InnerException()
 		{
 			Exception innerException = new ArgumentException("F0");
-			var exception = new AssertionFailedException("240", innerException);
+			AssertionFailedException exception = new("240", innerException);
 
 			Assert.Equal("240", exception.Message);
 			Assert.Same(innerException, exception.InnerException);
@@ -68,7 +68,7 @@ namespace F0.Tests.Exceptions
 		[Fact]
 		public void Constructor_Deserialization_And_TypeIsMarkedAsSerializable()
 		{
-			var original = new AssertionFailedException("240", new ArgumentException("F0"));
+			AssertionFailedException original = new("240", new ArgumentException("F0"));
 
 			AssertionFailedException roundtrip = RoundTrip(original);
 

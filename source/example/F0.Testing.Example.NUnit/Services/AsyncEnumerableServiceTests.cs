@@ -14,7 +14,7 @@ namespace F0.Testing.Example.NUnit.Services
 		public void NUnit3_AssertThatExceptionsForAsynchronousMethodIteratorsSurface_WhenTheAsyncIteratorIsRetrieved()
 		{
 			// Arrange
-			var service = new AsyncEnumerableService();
+			AsyncEnumerableService service = new();
 
 			// Act and Assert
 			Exception exception = Assert.Throws<AsyncImmediateException>(() => service.CreateAsynchronousSequence(true));
@@ -30,7 +30,7 @@ namespace F0.Testing.Example.NUnit.Services
 		public void NUnit3_AssertThatExceptionsForAsynchronousMethodIteratorsSurface_WhenTheReturnedSequenceIsEnumeratedAsynchronously()
 		{
 			// Arrange
-			var service = new AsyncEnumerableService();
+			AsyncEnumerableService service = new();
 
 			// Act
 			IAsyncEnumerable<int> sequence = service.CreateAsynchronousSequence(false);
@@ -49,7 +49,7 @@ namespace F0.Testing.Example.NUnit.Services
 		public void Explicitly_AssertThatExceptionsForAsynchronousMethodIteratorsSurface_WhenTheAsyncIteratorIsRetrieved()
 		{
 			// Arrange
-			var service = new AsyncEnumerableService();
+			AsyncEnumerableService service = new();
 
 			// Act and Assert
 			Exception exception = Test.That(() => service.CreateAsynchronousSequence(true)).ThrowsImmediately<AsyncImmediateException>();
@@ -60,7 +60,7 @@ namespace F0.Testing.Example.NUnit.Services
 		public async Task Explicitly_AssertThatExceptionsForAsynchronousMethodIteratorsSurface_WhenTheReturnedSequenceIsEnumeratedAsynchronously()
 		{
 			// Arrange
-			var service = new AsyncEnumerableService();
+			AsyncEnumerableService service = new();
 
 			// Act and Assert
 			Exception exception = await Test.That(() => service.CreateAsynchronousSequence(false)).ThrowsDeferredAsync<AsyncIterateException>();

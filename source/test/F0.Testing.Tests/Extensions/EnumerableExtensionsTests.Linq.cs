@@ -42,7 +42,7 @@ namespace F0.Tests.Extensions
 		{
 			IEnumerable<int> sequence = Enumerable.Range(1, 1);
 
-			bool hasExactlyOne = sequence.HasExactlyOne(i => i % 2 == 0);
+			bool hasExactlyOne = sequence.HasExactlyOne(static i => i % 2 == 0);
 
 			Assert.False(hasExactlyOne);
 		}
@@ -52,7 +52,7 @@ namespace F0.Tests.Extensions
 		{
 			IEnumerable<int> sequence = Enumerable.Range(1, 2);
 
-			bool hasExactlyOne = sequence.HasExactlyOne(i => i % 2 == 0);
+			bool hasExactlyOne = sequence.HasExactlyOne(static i => i % 2 == 0);
 
 			Assert.True(hasExactlyOne);
 		}
@@ -62,7 +62,7 @@ namespace F0.Tests.Extensions
 		{
 			IEnumerable<int> sequence = Enumerable.Range(2, 3);
 
-			bool hasExactlyOne = sequence.HasExactlyOne(i => i % 2 == 0);
+			bool hasExactlyOne = sequence.HasExactlyOne(static i => i % 2 == 0);
 
 			Assert.False(hasExactlyOne);
 		}

@@ -13,7 +13,7 @@ namespace F0.Tests.Assertions
 	{
 		private const string assemblyDisplayName = "F0.Testing.TestAssembly, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null";
 
-		private static readonly AssemblyUnderTest assertor = new AssemblyUnderTest(typeof(TestClass).Assembly);
+		private static readonly AssemblyUnderTest assertor = new(typeof(TestClass).Assembly);
 
 		[Fact]
 		public void Ctor_AssemblyUnderTest_CannotBeNull()
@@ -61,7 +61,7 @@ namespace F0.Tests.Assertions
 
 			AssertionFailedException exception = Assert.Throws<AssertionFailedException>(Act);
 
-			var inner = new AmbiguousMatchException("Multiple custom attributes of the same type found.");
+			AmbiguousMatchException inner = new("Multiple custom attributes of the same type found.");
 			Checker.CheckExceptionMessage(exception, "HasAttribute", "F0.Testing.TestNamespace.TestMultiAttribute", GetMultipleFoundMessage(), inner);
 		}
 
@@ -227,7 +227,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void HasAssemblyVersion_ExpectedAssemblyVersion()
 		{
-			var expected = new Version("1.0.0.0");
+			Version expected = new("1.0.0.0");
 			Version actual = assertor.HasAssemblyVersion(expected);
 
 			Assert.Equal(new Version(1, 0, 0, 0), actual);
@@ -240,7 +240,7 @@ namespace F0.Tests.Assertions
 		[InlineData("1.0.0.1")]
 		public void HasAssemblyVersion_UnexpectedAssemblyVersion(string input)
 		{
-			var version = new Version(input);
+			Version version = new(input);
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.HasAssemblyVersion(version));
 			Checker.CheckExceptionMessage(exception, "HasAssemblyVersion", input, "1.0.0.0");
@@ -258,7 +258,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void HasAssemblyVersion_DefaultAssemblyVersion()
 		{
-			var defaultVersion = new Version();
+			Version defaultVersion = new();
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.HasAssemblyVersion(defaultVersion));
 			Checker.CheckExceptionMessage(exception, "HasAssemblyVersion", defaultVersion.ToString(), "1.0.0.0");

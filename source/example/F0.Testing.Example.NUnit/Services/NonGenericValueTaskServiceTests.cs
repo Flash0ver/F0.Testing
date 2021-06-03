@@ -12,7 +12,7 @@ namespace F0.Testing.Example.NUnit.Services
 		public void NUnit3_AssertThatExceptionsForAsynchronousMethodsSurface_WhenTheAsynchronousOperationIsRetrieved()
 		{
 			// Arrange
-			var service = new NonGenericValueTaskService();
+			NonGenericValueTaskService service = new();
 
 			// Act and Assert
 			Exception exception = Assert.Throws<SynchronousNonGenericAllocationFreeException>(() => { _ = service.CreateOperation(true); });
@@ -28,7 +28,7 @@ namespace F0.Testing.Example.NUnit.Services
 		public void NUnit3_AssertThatExceptionsForAsynchronousMethodsSurface_WhenTheReturnedValueTaskIsAwaited()
 		{
 			// Arrange
-			var service = new NonGenericValueTaskService();
+			NonGenericValueTaskService service = new();
 
 			// Act
 			ValueTask operation = service.CreateOperation(false);
@@ -47,7 +47,7 @@ namespace F0.Testing.Example.NUnit.Services
 		public void Explicitly_AssertThatExceptionsForAsynchronousMethodsSurface_WhenTheAsynchronousOperationIsRetrieved()
 		{
 			// Arrange
-			var service = new NonGenericValueTaskService();
+			NonGenericValueTaskService service = new();
 
 			// Act and Assert
 			Exception exception = Test.That(() => service.CreateOperation(true)).ThrowsSynchronously<SynchronousNonGenericAllocationFreeException>();
@@ -58,7 +58,7 @@ namespace F0.Testing.Example.NUnit.Services
 		public async Task Explicitly_AssertThatExceptionsForAsynchronousMethodsSurface_WhenTheReturnedValueTaskIsAwaited()
 		{
 			// Arrange
-			var service = new NonGenericValueTaskService();
+			NonGenericValueTaskService service = new();
 
 			// Act and Assert
 			Exception exception = await Test.That(() => service.CreateOperation(false)).ThrowsAsynchronously<AsynchronousNonGenericAllocationFreeException>();

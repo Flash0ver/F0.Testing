@@ -13,7 +13,7 @@ namespace F0.Testing.Example.NUnit.Services
 		public void NUnit3_AssertThatExceptionsForMethodIteratorsSurface_WhenTheIteratorIsRetrieved()
 		{
 			// Arrange
-			var service = new EnumerableService();
+			EnumerableService service = new();
 
 			// Act and Assert
 			Exception exception = Assert.Throws<ImmediateException>(() => service.CreateSequence(true));
@@ -29,7 +29,7 @@ namespace F0.Testing.Example.NUnit.Services
 		public void NUnit3_AssertThatExceptionsForMethodIteratorsSurface_WhenTheReturnedSequenceIsEnumerated()
 		{
 			// Arrange
-			var service = new EnumerableService();
+			EnumerableService service = new();
 
 			// Act
 			IEnumerable<int> sequence = service.CreateSequence(false);
@@ -48,7 +48,7 @@ namespace F0.Testing.Example.NUnit.Services
 		public void Explicitly_AssertThatExceptionsForMethodIteratorsSurface_WhenTheIteratorIsRetrieved()
 		{
 			// Arrange
-			var service = new EnumerableService();
+			EnumerableService service = new();
 
 			// Act and Assert
 			Exception exception = Test.That(() => service.CreateSequence(true)).ThrowsImmediately<ImmediateException>();
@@ -59,7 +59,7 @@ namespace F0.Testing.Example.NUnit.Services
 		public void Explicitly_AssertThatExceptionsForMethodIteratorsSurface_WhenTheReturnedSequenceIsEnumerated()
 		{
 			// Arrange
-			var service = new EnumerableService();
+			EnumerableService service = new();
 
 			// Act and Assert
 			Exception exception = Test.That(() => service.CreateSequence(false)).ThrowsDeferred<IterateException>();

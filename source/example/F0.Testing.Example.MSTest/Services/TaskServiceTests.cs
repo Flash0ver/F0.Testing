@@ -12,7 +12,7 @@ namespace F0.Testing.Example.MSTest.Services
 		public void MSTestV2_AssertThatExceptionsForAsynchronousMethodsSurface_WhenTheAsynchronousOperationIsRetrieved()
 		{
 			// Arrange
-			var service = new TaskService();
+			TaskService service = new();
 
 			// Act and Assert
 			Exception exception = Assert.ThrowsException<SynchronousException>(() => { _ = service.CreateOperation(true); });
@@ -23,7 +23,7 @@ namespace F0.Testing.Example.MSTest.Services
 		public async Task MSTestV2_AssertThatExceptionsForAsynchronousMethodsSurface_WhenTheReturnedTaskIsAwaited()
 		{
 			// Arrange
-			var service = new TaskService();
+			TaskService service = new();
 
 			// Act
 			Task<int> operation = service.CreateOperation(false);
@@ -37,7 +37,7 @@ namespace F0.Testing.Example.MSTest.Services
 		public void Explicitly_AssertThatExceptionsForAsynchronousMethodsSurface_WhenTheAsynchronousOperationIsRetrieved()
 		{
 			// Arrange
-			var service = new TaskService();
+			TaskService service = new();
 
 			// Act and Assert
 			Exception exception = Test.That(() => service.CreateOperation(true)).ThrowsSynchronously<SynchronousException>();
@@ -48,7 +48,7 @@ namespace F0.Testing.Example.MSTest.Services
 		public async Task Explicitly_AssertThatExceptionsForAsynchronousMethodsSurface_WhenTheReturnedTaskIsAwaited()
 		{
 			// Arrange
-			var service = new TaskService();
+			TaskService service = new();
 
 			// Act and Assert
 			Exception exception = await Test.That(() => service.CreateOperation(false)).ThrowsAsynchronously<AsynchronousException>();

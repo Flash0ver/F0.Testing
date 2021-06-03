@@ -19,7 +19,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsImmediately_TesteeDoesNotThrowAnyException_FailedAssertion()
 		{
-			var assertor = new EnumerableDelegateUnderTest<int>(GetSequence);
+			EnumerableDelegateUnderTest<int> assertor = new(GetSequence);
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsImmediately<DerivedException>());
 
@@ -30,7 +30,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsImmediately_TesteeThrowsImmediatelyExactException_PassedAssertion()
 		{
-			var assertor = new EnumerableDelegateUnderTest<int>(ThrowImmediately);
+			EnumerableDelegateUnderTest<int> assertor = new(ThrowImmediately);
 
 			Exception exception = assertor.ThrowsImmediately<DerivedException>();
 
@@ -41,7 +41,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsImmediately_TesteeThrowsImmediatelyDerivedException_FailedAssertion()
 		{
-			var assertor = new EnumerableDelegateUnderTest<int>(ThrowImmediately);
+			EnumerableDelegateUnderTest<int> assertor = new(ThrowImmediately);
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsImmediately<BaseException>());
 
@@ -52,7 +52,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsImmediately_TesteeThrowsImmediatelyDifferentException_FailedAssertion()
 		{
-			var assertor = new EnumerableDelegateUnderTest<int>(ThrowImmediately);
+			EnumerableDelegateUnderTest<int> assertor = new(ThrowImmediately);
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsImmediately<ArgumentException>());
 
@@ -63,7 +63,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsImmediately_TesteeThrowsDeferredExactException_FailedAssertion()
 		{
-			var assertor = new EnumerableDelegateUnderTest<int>(ThrowDeferred);
+			EnumerableDelegateUnderTest<int> assertor = new(ThrowDeferred);
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsImmediately<DerivedException>());
 
@@ -74,7 +74,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsImmediately_TesteeThrowsDeferredDerivedException_FailedAssertion()
 		{
-			var assertor = new EnumerableDelegateUnderTest<int>(ThrowDeferred);
+			EnumerableDelegateUnderTest<int> assertor = new(ThrowDeferred);
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsImmediately<BaseException>());
 
@@ -85,7 +85,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsImmediately_TesteeThrowsDeferredDifferentException_FailedAssertion()
 		{
-			var assertor = new EnumerableDelegateUnderTest<int>(ThrowDeferred);
+			EnumerableDelegateUnderTest<int> assertor = new(ThrowDeferred);
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsImmediately<ArgumentException>());
 
@@ -96,7 +96,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsDeferred_TesteeDoesNotThrowAnyException_FailedAssertion()
 		{
-			var assertor = new EnumerableDelegateUnderTest<int>(GetSequence);
+			EnumerableDelegateUnderTest<int> assertor = new(GetSequence);
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsDeferred<DerivedException>());
 
@@ -107,7 +107,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsDeferred_TesteeThrowsImmediatelyExactException_FailedAssertion()
 		{
-			var assertor = new EnumerableDelegateUnderTest<int>(ThrowImmediately);
+			EnumerableDelegateUnderTest<int> assertor = new(ThrowImmediately);
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsDeferred<DerivedException>());
 
@@ -118,7 +118,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsDeferred_TesteeThrowsImmediatelyDerivedException_FailedAssertion()
 		{
-			var assertor = new EnumerableDelegateUnderTest<int>(ThrowImmediately);
+			EnumerableDelegateUnderTest<int> assertor = new(ThrowImmediately);
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsDeferred<BaseException>());
 
@@ -129,7 +129,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsDeferred_TesteeThrowsImmediatelyDifferentException_FailedAssertion()
 		{
-			var assertor = new EnumerableDelegateUnderTest<int>(ThrowImmediately);
+			EnumerableDelegateUnderTest<int> assertor = new(ThrowImmediately);
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsDeferred<ArgumentException>());
 
@@ -140,7 +140,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsDeferred_TesteeThrowsDeferredExactException_PassedAssertion()
 		{
-			var assertor = new EnumerableDelegateUnderTest<int>(ThrowDeferred);
+			EnumerableDelegateUnderTest<int> assertor = new(ThrowDeferred);
 
 			Exception exception = assertor.ThrowsDeferred<DerivedException>();
 
@@ -151,7 +151,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsDeferred_TesteeThrowsDeferredDerivedException_FailedAssertion()
 		{
-			var assertor = new EnumerableDelegateUnderTest<int>(ThrowDeferred);
+			EnumerableDelegateUnderTest<int> assertor = new(ThrowDeferred);
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsDeferred<BaseException>());
 
@@ -162,7 +162,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsDeferred_TesteeThrowsDeferredDifferentException_FailedAssertion()
 		{
-			var assertor = new EnumerableDelegateUnderTest<int>(ThrowDeferred);
+			EnumerableDelegateUnderTest<int> assertor = new(ThrowDeferred);
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsDeferred<ArgumentException>());
 

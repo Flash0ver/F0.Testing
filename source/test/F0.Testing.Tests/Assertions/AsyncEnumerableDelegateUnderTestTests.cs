@@ -20,7 +20,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsImmediately_TesteeDoesNotThrowAnyExceptionSynchronously_FailedAssertion()
 		{
-			var assertor = new AsyncEnumerableDelegateUnderTest<int>(GetItemsSynchronously);
+			AsyncEnumerableDelegateUnderTest<int> assertor = new(GetItemsSynchronously);
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsImmediately<DerivedException>());
 
@@ -31,7 +31,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsImmediately_TesteeDoesNotThrowAnyExceptionAsynchronously_FailedAssertion()
 		{
-			var assertor = new AsyncEnumerableDelegateUnderTest<int>(GetItemsAsync);
+			AsyncEnumerableDelegateUnderTest<int> assertor = new(GetItemsAsync);
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsImmediately<DerivedException>());
 
@@ -42,7 +42,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsImmediately_TesteeThrowsImmediatelyExactException_PassedAssertion()
 		{
-			var assertor = new AsyncEnumerableDelegateUnderTest<int>(ThrowImmediately);
+			AsyncEnumerableDelegateUnderTest<int> assertor = new(ThrowImmediately);
 
 			Exception exception = assertor.ThrowsImmediately<DerivedException>();
 
@@ -53,7 +53,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsImmediately_TesteeThrowsImmediatelyDerivedException_FailedAssertion()
 		{
-			var assertor = new AsyncEnumerableDelegateUnderTest<int>(ThrowImmediately);
+			AsyncEnumerableDelegateUnderTest<int> assertor = new(ThrowImmediately);
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsImmediately<BaseException>());
 
@@ -64,7 +64,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsImmediately_TesteeThrowsImmediatelyDifferentException_FailedAssertion()
 		{
-			var assertor = new AsyncEnumerableDelegateUnderTest<int>(ThrowImmediately);
+			AsyncEnumerableDelegateUnderTest<int> assertor = new(ThrowImmediately);
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsImmediately<ArgumentException>());
 
@@ -75,7 +75,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsImmediately_TesteeThrowsDeferredAsynchronouslyExactException_FailedAssertion()
 		{
-			var assertor = new AsyncEnumerableDelegateUnderTest<int>(ThrowDeferredAsync);
+			AsyncEnumerableDelegateUnderTest<int> assertor = new(ThrowDeferredAsync);
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsImmediately<DerivedException>());
 
@@ -86,7 +86,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsImmediately_TesteeThrowsDeferredAsynchronouslyDerivedException_FailedAssertion()
 		{
-			var assertor = new AsyncEnumerableDelegateUnderTest<int>(ThrowDeferredAsync);
+			AsyncEnumerableDelegateUnderTest<int> assertor = new(ThrowDeferredAsync);
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsImmediately<BaseException>());
 
@@ -97,7 +97,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void ThrowsImmediately_TesteeThrowsDeferredAsynchronouslyDifferentException_FailedAssertion()
 		{
-			var assertor = new AsyncEnumerableDelegateUnderTest<int>(ThrowDeferredAsync);
+			AsyncEnumerableDelegateUnderTest<int> assertor = new(ThrowDeferredAsync);
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.ThrowsImmediately<ArgumentException>());
 
@@ -108,7 +108,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public async Task ThrowsDeferredAsync_TesteeDoesNotThrowAnyExceptionSynchronously_FailedAssertion()
 		{
-			var assertor = new AsyncEnumerableDelegateUnderTest<int>(GetItemsSynchronously);
+			AsyncEnumerableDelegateUnderTest<int> assertor = new(GetItemsSynchronously);
 
 			Exception exception = await Assert.ThrowsAsync<AssertionFailedException>(() => assertor.ThrowsDeferredAsync<DerivedException>());
 
@@ -119,7 +119,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public async Task ThrowsDeferredAsync_TesteeDoesNotThrowAnyExceptionAsynchronously_FailedAssertion()
 		{
-			var assertor = new AsyncEnumerableDelegateUnderTest<int>(GetItemsAsync);
+			AsyncEnumerableDelegateUnderTest<int> assertor = new(GetItemsAsync);
 
 			Exception exception = await Assert.ThrowsAsync<AssertionFailedException>(() => assertor.ThrowsDeferredAsync<DerivedException>());
 
@@ -130,7 +130,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public async Task ThrowsDeferredAsync_TesteeThrowsImmediatelyExactException_FailedAssertion()
 		{
-			var assertor = new AsyncEnumerableDelegateUnderTest<int>(ThrowImmediately);
+			AsyncEnumerableDelegateUnderTest<int> assertor = new(ThrowImmediately);
 
 			Exception exception = await Assert.ThrowsAsync<AssertionFailedException>(() => assertor.ThrowsDeferredAsync<DerivedException>());
 
@@ -141,7 +141,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public async Task ThrowsDeferredAsync_TesteeThrowsImmediatelyDerivedException_FailedAssertion()
 		{
-			var assertor = new AsyncEnumerableDelegateUnderTest<int>(ThrowImmediately);
+			AsyncEnumerableDelegateUnderTest<int> assertor = new(ThrowImmediately);
 
 			Exception exception = await Assert.ThrowsAsync<AssertionFailedException>(() => assertor.ThrowsDeferredAsync<BaseException>());
 
@@ -152,7 +152,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public async Task ThrowsDeferredAsync_TesteeThrowsImmediatelyDifferentException_FailedAssertion()
 		{
-			var assertor = new AsyncEnumerableDelegateUnderTest<int>(ThrowImmediately);
+			AsyncEnumerableDelegateUnderTest<int> assertor = new(ThrowImmediately);
 
 			Exception exception = await Assert.ThrowsAsync<AssertionFailedException>(() => assertor.ThrowsDeferredAsync<ArgumentException>());
 
@@ -163,7 +163,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public async Task ThrowsDeferredAsync_TesteeThrowsDeferredAsynchronouslyExactException_PassedAssertion()
 		{
-			var assertor = new AsyncEnumerableDelegateUnderTest<int>(ThrowDeferredAsync);
+			AsyncEnumerableDelegateUnderTest<int> assertor = new(ThrowDeferredAsync);
 
 			Exception exception = await assertor.ThrowsDeferredAsync<DerivedException>();
 
@@ -174,7 +174,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public async Task ThrowsDeferredAsync_TesteeThrowsDeferredAsynchronouslyDerivedException_FailedAssertion()
 		{
-			var assertor = new AsyncEnumerableDelegateUnderTest<int>(ThrowDeferredAsync);
+			AsyncEnumerableDelegateUnderTest<int> assertor = new(ThrowDeferredAsync);
 
 			Exception exception = await Assert.ThrowsAsync<AssertionFailedException>(() => assertor.ThrowsDeferredAsync<BaseException>());
 
@@ -185,7 +185,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public async Task ThrowsDeferredAsync_TesteeThrowsDeferredAsynchronouslyDifferentException_FailedAssertion()
 		{
-			var assertor = new AsyncEnumerableDelegateUnderTest<int>(ThrowDeferredAsync);
+			AsyncEnumerableDelegateUnderTest<int> assertor = new(ThrowDeferredAsync);
 
 			Exception exception = await Assert.ThrowsAsync<AssertionFailedException>(() => assertor.ThrowsDeferredAsync<ArgumentException>());
 
