@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
+    <TargetFrameworks>net5.0;netstandard2.1;netstandard2.0</TargetFrameworks>
     <AssemblyName>F0.Testing</AssemblyName>
     <RootNamespace>F0</RootNamespace>
   </PropertyGroup>
@@ -26,7 +26,7 @@
     <PackageReleaseNotes>Added explicit assertions for specified assembly attributes to be applied.</PackageReleaseNotes>
   </PropertyGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="1.1.1" />
     <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
   </ItemGroup>
