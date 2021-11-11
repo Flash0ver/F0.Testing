@@ -13,7 +13,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void Ctor_MethodUnderTest_CannotBeNull()
 		{
-			Assert.Throws<ArgumentNullException>("enumerableMethod", () => new EnumerableDelegateUnderTest<object>(null));
+			Assert.Throws<ArgumentNullException>("enumerableMethod", () => new EnumerableDelegateUnderTest<object>(null!));
 		}
 
 		[Fact]

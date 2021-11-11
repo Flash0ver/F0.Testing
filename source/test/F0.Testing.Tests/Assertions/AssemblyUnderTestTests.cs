@@ -5,6 +5,7 @@ using F0.Assertions;
 using F0.Exceptions;
 using F0.Testing.TestNamespace;
 using F0.Tests.Shared;
+using FakeItEasy;
 using Xunit;
 
 namespace F0.Tests.Assertions
@@ -18,7 +19,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void Ctor_AssemblyUnderTest_CannotBeNull()
 		{
-			Assert.Throws<ArgumentNullException>("assembly", () => new AssemblyUnderTest(null));
+			Assert.Throws<ArgumentNullException>("assembly", () => new AssemblyUnderTest(null!));
 		}
 
 		[Fact]
@@ -249,11 +250,47 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void HasAssemblyVersion_NoAssemblyVersion()
 		{
-			Version nullVersion = null;
+			Version? nullVersion = null;
 
 			Exception exception = Assert.Throws<AssertionFailedException>(() => assertor.HasAssemblyVersion(nullVersion));
-			Checker.CheckExceptionMessage(exception, "HasAssemblyVersion", "null", "1.0.0.0");
+			Checker.CheckExceptionMessage(exception, "HasAssemblyVersion", "(null)", "1.0.0.0");
 		}
+
+#if !NETFRAMEWORK
+		[Fact]
+		public void HasAssemblyVersion_NotAvailable()
+		{
+			Version version = new(2, 4, 0);
+
+			Assembly assembly = A.Fake<Assembly>(o => o.Strict());
+			AssemblyName assemblyName = new();
+			A.CallTo(() => assembly.GetName()).Returns(assemblyName);
+			Assert.Null(assemblyName.Version);
+
+			AssemblyUnderTest underTest = new(assembly);
+
+			Exception exception = Assert.Throws<AssertionFailedException>(() => underTest.HasAssemblyVersion(version));
+			Checker.CheckExceptionMessage(exception, "HasAssemblyVersion", "2.4.0", "(null)");
+		}
+#endif
+
+#if !NETFRAMEWORK
+		[Fact]
+		public void HasAssemblyVersion_BothNull()
+		{
+			Version? nullVersion = null;
+
+			Assembly assembly = A.Fake<Assembly>(o => o.Strict());
+			AssemblyName assemblyName = new();
+			A.CallTo(() => assembly.GetName()).Returns(assemblyName);
+			Assert.Null(assemblyName.Version);
+
+			AssemblyUnderTest underTest = new(assembly);
+
+			Version? actual = underTest.HasAssemblyVersion(nullVersion);
+			Assert.Null(actual);
+		}
+#endif
 
 		[Fact]
 		public void HasAssemblyVersion_DefaultAssemblyVersion()

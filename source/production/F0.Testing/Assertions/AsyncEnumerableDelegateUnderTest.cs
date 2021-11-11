@@ -17,24 +17,24 @@ namespace F0.Assertions
 		public TException ThrowsImmediately<TException>()
 			 where TException : Exception
 		{
-			Exception exception = CaptureException();
+			Exception? exception = CaptureException();
 
 			if (exception is null)
 			{
-				AssertionFailedException.Throw(nameof(ThrowsImmediately), typeof(TException).FullName, "(No exception was thrown when retrieving the asynchronous iterator)");
+				AssertionFailedException.Throw(nameof(ThrowsImmediately), typeof(TException).FullName!, "(No exception was thrown when retrieving the asynchronous iterator)");
 			}
 			else if (exception.GetType() != typeof(TException))
 			{
-				AssertionFailedException.Throw(nameof(ThrowsImmediately), typeof(TException).FullName, exception.GetType().FullName);
+				AssertionFailedException.Throw(nameof(ThrowsImmediately), typeof(TException).FullName!, exception.GetType().FullName!);
 			}
 
-			return exception as TException;
+			return (exception as TException)!;
 		}
 
 		public async Task<TException> ThrowsDeferredAsync<TException>()
 			where TException : Exception
 		{
-			IAsyncEnumerable<T> asyncIterator;
+			IAsyncEnumerable<T>? asyncIterator;
 
 			try
 			{
@@ -44,26 +44,26 @@ namespace F0.Assertions
 			{
 				asyncIterator = null;
 
-				AssertionFailedException.Throw(nameof(ThrowsDeferredAsync), typeof(TException).FullName, $"(An exception was thrown before iteration over the asynchronous stream: '{e.GetType()}')");
+				AssertionFailedException.Throw(nameof(ThrowsDeferredAsync), typeof(TException).FullName!, $"(An exception was thrown before iteration over the asynchronous stream: '{e.GetType()}')");
 			}
 
-			Exception exception = await CaptureExceptionAsync(asyncIterator);
+			Exception? exception = await CaptureExceptionAsync(asyncIterator);
 
 			if (exception is null)
 			{
-				AssertionFailedException.Throw(nameof(ThrowsDeferredAsync), typeof(TException).FullName, "(No exception was thrown during iteration over the asynchronous stream)");
+				AssertionFailedException.Throw(nameof(ThrowsDeferredAsync), typeof(TException).FullName!, "(No exception was thrown during iteration over the asynchronous stream)");
 			}
 			else if (exception.GetType() != typeof(TException))
 			{
-				AssertionFailedException.Throw(nameof(ThrowsDeferredAsync), typeof(TException).FullName, exception.GetType().FullName);
+				AssertionFailedException.Throw(nameof(ThrowsDeferredAsync), typeof(TException).FullName!, exception.GetType().FullName!);
 			}
 
-			return exception as TException;
+			return (exception as TException)!;
 		}
 
-		private Exception CaptureException()
+		private Exception? CaptureException()
 		{
-			Exception exception;
+			Exception? exception;
 
 			try
 			{
@@ -78,9 +78,9 @@ namespace F0.Assertions
 			return exception;
 		}
 
-		private static async Task<Exception> CaptureExceptionAsync(IAsyncEnumerable<T> asyncIterator)
+		private static async Task<Exception?> CaptureExceptionAsync(IAsyncEnumerable<T> asyncIterator)
 		{
-			Exception exception;
+			Exception? exception;
 
 			try
 			{

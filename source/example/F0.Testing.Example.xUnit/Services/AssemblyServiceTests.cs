@@ -20,7 +20,7 @@ namespace F0.Testing.Example.xUnit.Services
 			Assembly assembly = service.GetAssembly();
 
 			// Assert
-			GuidAttribute attribute = assembly.GetCustomAttribute<GuidAttribute>();
+			GuidAttribute? attribute = assembly.GetCustomAttribute<GuidAttribute>();
 			Assert.NotNull(attribute);
 			Assert.Equal("c1b49028-a6f6-4e34-a579-08458219330c", attribute.Value);
 		}
@@ -61,7 +61,7 @@ namespace F0.Testing.Example.xUnit.Services
 			Assembly assembly = service.GetAssembly();
 
 			// Assert
-			Version assemblyVersion = assembly.GetName().Version;
+			Version? assemblyVersion = assembly.GetName().Version;
 			Assert.Equal(new Version(1, 0, 0, 0), assemblyVersion);
 		}
 

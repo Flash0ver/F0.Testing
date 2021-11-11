@@ -16,24 +16,24 @@ namespace F0.Assertions
 		public TException ThrowsSynchronously<TException>()
 			 where TException : Exception
 		{
-			Exception exception = CaptureExceptionSynchronously();
+			Exception? exception = CaptureExceptionSynchronously();
 
 			if (exception is null)
 			{
-				AssertionFailedException.Throw(nameof(ThrowsSynchronously), typeof(TException).FullName, "(No exception was observed synchronously)");
+				AssertionFailedException.Throw(nameof(ThrowsSynchronously), typeof(TException).FullName!, "(No exception was observed synchronously)");
 			}
 			else if (exception.GetType() != typeof(TException))
 			{
-				AssertionFailedException.Throw(nameof(ThrowsSynchronously), typeof(TException).FullName, exception.GetType().FullName);
+				AssertionFailedException.Throw(nameof(ThrowsSynchronously), typeof(TException).FullName!, exception.GetType().FullName!);
 			}
 
-			return exception as TException;
+			return (exception as TException)!;
 		}
 
 		public async Task<TException> ThrowsAsynchronously<TException>()
 			 where TException : Exception
 		{
-			Task task;
+			Task? task;
 
 			try
 			{
@@ -43,26 +43,26 @@ namespace F0.Assertions
 			{
 				task = null;
 
-				AssertionFailedException.Throw(nameof(ThrowsAsynchronously), typeof(TException).FullName, $"(An exception was thrown synchronously: '{e.GetType()}')");
+				AssertionFailedException.Throw(nameof(ThrowsAsynchronously), typeof(TException).FullName!, $"(An exception was thrown synchronously: '{e.GetType()}')");
 			}
 
-			Exception exception = await CaptureExceptionAsynchronously(task);
+			Exception? exception = await CaptureExceptionAsynchronously(task);
 
 			if (exception is null)
 			{
-				AssertionFailedException.Throw(nameof(ThrowsAsynchronously), typeof(TException).FullName, "(No exception was observed asynchronously)");
+				AssertionFailedException.Throw(nameof(ThrowsAsynchronously), typeof(TException).FullName!, "(No exception was observed asynchronously)");
 			}
 			else if (exception.GetType() != typeof(TException))
 			{
-				AssertionFailedException.Throw(nameof(ThrowsAsynchronously), typeof(TException).FullName, exception.GetType().FullName);
+				AssertionFailedException.Throw(nameof(ThrowsAsynchronously), typeof(TException).FullName!, exception.GetType().FullName!);
 			}
 
-			return exception as TException;
+			return (exception as TException)!;
 		}
 
-		private Exception CaptureExceptionSynchronously()
+		private Exception? CaptureExceptionSynchronously()
 		{
-			Exception exception;
+			Exception? exception;
 
 			try
 			{
@@ -77,9 +77,9 @@ namespace F0.Assertions
 			return exception;
 		}
 
-		private static async Task<Exception> CaptureExceptionAsynchronously(Task task)
+		private static async Task<Exception?> CaptureExceptionAsynchronously(Task task)
 		{
-			Exception exception;
+			Exception? exception;
 
 			try
 			{

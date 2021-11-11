@@ -14,7 +14,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void Ctor_MethodUnderTest_CannotBeNull()
 		{
-			Assert.Throws<ArgumentNullException>("asyncEnumerableMethod", () => new AsyncEnumerableDelegateUnderTest<object>(null));
+			Assert.Throws<ArgumentNullException>("asyncEnumerableMethod", () => new AsyncEnumerableDelegateUnderTest<object>(null!));
 		}
 
 		[Fact]

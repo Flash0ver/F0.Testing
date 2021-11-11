@@ -22,7 +22,7 @@ namespace F0.Testing.Example.MSTest.Services
 			Assembly assembly = service.GetAssembly();
 
 			// Assert
-			ComVisibleAttribute attribute = assembly.GetCustomAttribute<ComVisibleAttribute>();
+			ComVisibleAttribute? attribute = assembly.GetCustomAttribute<ComVisibleAttribute>();
 			Assert.IsNotNull(attribute);
 			Assert.IsFalse(attribute.Value);
 		}
@@ -56,7 +56,7 @@ namespace F0.Testing.Example.MSTest.Services
 			Assembly assembly = service.GetAssembly();
 
 			// Assert
-			Version assemblyVersion = assembly.GetName().Version;
+			Version? assemblyVersion = assembly.GetName().Version;
 			Assert.AreEqual(new Version(1, 0, 0, 0), assemblyVersion);
 		}
 

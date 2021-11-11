@@ -78,6 +78,7 @@ namespace F0.Tests.Exceptions
 			Assert.Equal("F0", roundtrip.InnerException.Message);
 		}
 
+#pragma warning disable SYSLIB0011 // Type or member is obsolete
 		private static AssertionFailedException RoundTrip(AssertionFailedException exception)
 		{
 			using Stream stream = new MemoryStream();
@@ -88,5 +89,6 @@ namespace F0.Tests.Exceptions
 
 			return (AssertionFailedException)formatter.Deserialize(stream);
 		}
+#pragma warning restore SYSLIB0011 // Type or member is obsolete
 	}
 }

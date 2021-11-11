@@ -12,7 +12,7 @@ namespace F0.Tests.Assertions
 		[Fact]
 		public void Ctor_MethodUnderTest_CannotBeNull()
 		{
-			Assert.Throws<ArgumentNullException>("asyncMethod", () => new TaskDelegateUnderTest(null));
+			Assert.Throws<ArgumentNullException>("asyncMethod", () => new TaskDelegateUnderTest(null!));
 		}
 
 		[Fact]

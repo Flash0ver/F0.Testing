@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using F0.Testing.Example.Services;
@@ -20,8 +21,9 @@ namespace F0.Testing.Example.NUnit.Services
 			Assembly assembly = service.GetAssembly();
 
 			// Assert
-			CLSCompliantAttribute attribute = assembly.GetCustomAttribute<CLSCompliantAttribute>();
+			CLSCompliantAttribute? attribute = assembly.GetCustomAttribute<CLSCompliantAttribute>();
 			Assert.IsNotNull(attribute);
+			Debug.Assert(attribute is not null);
 			Assert.IsTrue(attribute.IsCompliant);
 
 			// ConstraintBasedAssertModel
@@ -68,7 +70,7 @@ namespace F0.Testing.Example.NUnit.Services
 			Assembly assembly = service.GetAssembly();
 
 			// Assert
-			Version assemblyVersion = assembly.GetName().Version;
+			Version? assemblyVersion = assembly.GetName().Version;
 			Assert.AreEqual(new Version(1, 0, 0, 0), assemblyVersion);
 
 			// ConstraintBasedAssertModel

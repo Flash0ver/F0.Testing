@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 using F0.Exceptions;
@@ -19,7 +20,7 @@ namespace F0.Assertions
 		public TAttribute HasAttribute<TAttribute>()
 			where TAttribute : Attribute
 		{
-			TAttribute attribute = null;
+			TAttribute? attribute = null;
 
 			try
 			{
@@ -110,14 +111,15 @@ namespace F0.Assertions
 			return array;
 		}
 
-		public Version HasAssemblyVersion(Version expected)
+		[return: NotNullIfNotNull("expected")]
+		public Version? HasAssemblyVersion(Version? expected)
 		{
-			Version actual = assembly.GetName().Version;
+			Version? actual = assembly.GetName().Version;
 
-			if (!actual.Equals(expected))
+			if (!EqualityComparer<Version?>.Default.Equals(expected, actual))
 			{
-				string expectedMessage = expected is null ? "null" : expected.ToString();
-				string actualMessage = actual.ToString();
+				string expectedMessage = expected is null ? "(null)" : expected.ToString();
+				string actualMessage = actual is null ? "(null)" : actual.ToString();
 				AssertionFailedException.Throw(nameof(HasAssemblyVersion), expectedMessage, actualMessage);
 			}
 

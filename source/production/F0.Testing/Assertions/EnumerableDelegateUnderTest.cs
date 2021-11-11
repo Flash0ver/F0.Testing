@@ -16,24 +16,24 @@ namespace F0.Assertions
 		public TException ThrowsImmediately<TException>()
 			where TException : Exception
 		{
-			Exception exception = CaptureException();
+			Exception? exception = CaptureException();
 
 			if (exception is null)
 			{
-				AssertionFailedException.Throw(nameof(ThrowsImmediately), typeof(TException).FullName, "(No exception was thrown when retrieving the iterator)");
+				AssertionFailedException.Throw(nameof(ThrowsImmediately), typeof(TException).FullName!, "(No exception was thrown when retrieving the iterator)");
 			}
 			else if (exception.GetType() != typeof(TException))
 			{
-				AssertionFailedException.Throw(nameof(ThrowsImmediately), typeof(TException).FullName, exception.GetType().FullName);
+				AssertionFailedException.Throw(nameof(ThrowsImmediately), typeof(TException).FullName!, exception.GetType().FullName!);
 			}
 
-			return exception as TException;
+			return (exception as TException)!;
 		}
 
 		public TException ThrowsDeferred<TException>()
 			where TException : Exception
 		{
-			IEnumerable<T> iterator;
+			IEnumerable<T>? iterator;
 
 			try
 			{
@@ -43,26 +43,26 @@ namespace F0.Assertions
 			{
 				iterator = null;
 
-				AssertionFailedException.Throw(nameof(ThrowsDeferred), typeof(TException).FullName, $"(An exception was thrown before iteration over the sequence: '{e.GetType()}')");
+				AssertionFailedException.Throw(nameof(ThrowsDeferred), typeof(TException).FullName!, $"(An exception was thrown before iteration over the sequence: '{e.GetType()}')");
 			}
 
-			Exception exception = CaptureException(iterator);
+			Exception? exception = CaptureException(iterator);
 
 			if (exception is null)
 			{
-				AssertionFailedException.Throw(nameof(ThrowsDeferred), typeof(TException).FullName, "(No exception was thrown during iteration over the sequence)");
+				AssertionFailedException.Throw(nameof(ThrowsDeferred), typeof(TException).FullName!, "(No exception was thrown during iteration over the sequence)");
 			}
 			else if (exception.GetType() != typeof(TException))
 			{
-				AssertionFailedException.Throw(nameof(ThrowsDeferred), typeof(TException).FullName, exception.GetType().FullName);
+				AssertionFailedException.Throw(nameof(ThrowsDeferred), typeof(TException).FullName!, exception.GetType().FullName!);
 			}
 
-			return exception as TException;
+			return (exception as TException)!;
 		}
 
-		private Exception CaptureException()
+		private Exception? CaptureException()
 		{
-			Exception exception;
+			Exception? exception;
 
 			try
 			{
@@ -77,9 +77,9 @@ namespace F0.Assertions
 			return exception;
 		}
 
-		private static Exception CaptureException(IEnumerable<T> iterator)
+		private static Exception? CaptureException(IEnumerable<T> iterator)
 		{
-			Exception exception;
+			Exception? exception;
 
 			try
 			{

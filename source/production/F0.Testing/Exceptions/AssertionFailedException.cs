@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 
 namespace F0.Exceptions
@@ -8,6 +9,7 @@ namespace F0.Exceptions
 	{
 		private const string dotnet_test_error_message_indentation = "   ";
 
+		[DoesNotReturn]
 		internal static void Throw(string assertionName, string expectedMessage, string actualMessage)
 		{
 			string message = $"'{assertionName}' failed."
@@ -16,6 +18,7 @@ namespace F0.Exceptions
 			throw new AssertionFailedException(message);
 		}
 
+		[DoesNotReturn]
 		internal static void Throw(string assertionName, string expectedMessage, string actualMessage, Exception innerException)
 		{
 			string message = $"'{assertionName}' failed. ({innerException.Message})"

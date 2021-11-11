@@ -31,6 +31,10 @@
     <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
   </ItemGroup>
 
+  <ItemGroup Condition="'$(TargetFrameworkIdentifier)' == '.NETStandard' And $([MSBuild]::VersionEquals($(TargetFrameworkVersion), '2.0'))">
+    <PackageReference Include="Nullable" Version="1.3.0" PrivateAssets="all" />
+  </ItemGroup>
+
   <ItemGroup Condition="'$(Configuration)' == 'Debug'">
     <None Include="..\..\..\resources\F0.Testing-Preview.png" Pack="true" PackagePath="Icon.png" Visible="false" />
   </ItemGroup>
