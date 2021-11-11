@@ -5,6 +5,7 @@ CHANGELOG
 - Added target framework: `.NET 5`.
 - Added annotations for _nullable reference types_.
 - Changed assembly assertion `HasAssemblyVersion` to also allow _null_.
+- Updated `.NET Standard 2.0` dependency on `Microsoft.Bcl.AsyncInterfaces` from `1.1.1` to `5.0.0`.
 - Package: Embed icon (fixed _NuGet Warning NU5048_), keep fallback icon URL.
 
 ## v0.6.0 (2020-10-22)
