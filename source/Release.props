@@ -1,0 +1,8 @@
+<Project>
+
+  <PropertyGroup>
+    <F0Version>0.6.0</F0Version>
+    <F0PackageReleaseNotes>Added explicit assertions for specified assembly attributes to be applied.</F0PackageReleaseNotes>
+  </PropertyGroup>
+
+</Project>
