@@ -2,6 +2,8 @@
 CHANGELOG
 
 ## vNext
+
+## v0.7.0 (2021-11-12)
 - Added target framework: `.NET 5`.
 - Added annotations for _nullable reference types_.
 - Changed assembly assertion `HasAssemblyVersion` to also allow _null_.

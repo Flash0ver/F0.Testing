@@ -1,8 +1,11 @@
 <Project>
 
   <PropertyGroup>
-    <F0Version>0.6.0</F0Version>
-    <F0PackageReleaseNotes>Added explicit assertions for specified assembly attributes to be applied.</F0PackageReleaseNotes>
+    <F0Version>0.7.0</F0Version>
+    <F0PackageReleaseNotes>- Annotated APIs for nullable reference types
+- Added target framework: .NET 5
+- Changed assembly version assertion to also allow null
+- Updated dependency on Microsoft.Bcl.AsyncInterfaces to 5.0.0</F0PackageReleaseNotes>
   </PropertyGroup>
 
 </Project>
