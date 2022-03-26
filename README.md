@@ -9,7 +9,8 @@ This repository consists of .NET types for AAA pattern-based test-driven develop
 [NuGet package](https://www.nuget.org/packages/F0.Testing/)
 
 ## API Browser / Package Viewer
-[fuget](https://www.fuget.org/packages/F0.Testing)\
+[NuGet Package Explorer](https://nuget.info/packages/F0.Testing)\
+[FuGet Package Explorer](https://www.fuget.org/packages/F0.Testing)\
 [DotNetApis](http://dotnetapis.com/pkg/F0.Testing)\
 [NuGet Must Haves](https://nugetmusthaves.com/Package/F0.Testing)\
 [NuGet Trends](https://nugettrends.com/packages?months=12&ids=F0.Testing)
