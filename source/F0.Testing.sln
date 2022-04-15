@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29009.5
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C60631EA-9AD5-4EA8-8C81-BAEFF004207B}"
 EndProject
@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "F0.Testing.Example.NUnit", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "F0.Testing.Example.MSTest", "example\F0.Testing.Example.MSTest\F0.Testing.Example.MSTest.csproj", "{C8347C5E-CB77-45FE-8365-5AF619CAA168}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "F0.Testing.TestProject", "test\F0.Testing.TestProject\F0.Testing.TestProject.csproj", "{358D7A80-690E-49D6-9155-8FD9932342FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "F0.Testing.TestProject", "test\F0.Testing.TestProject\F0.Testing.TestProject.csproj", "{358D7A80-690E-49D6-9155-8FD9932342FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
